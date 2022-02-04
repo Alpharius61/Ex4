@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from bands.models import Band
+from bands.models import BandsManage
 # Create your views here.
 
 
@@ -18,3 +19,17 @@ def band_detail(request, band_id):
     band = Band.objects.get(id=band_id)
     context = {'band': band}
     return render(request, 'bands/band_detail.html', context)
+
+
+def bandAdd(request):
+    form = BandsManage
+    if request.method == 'POST':
+        form = BandsManage(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bands:bands')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'bands/band_add.html', context)

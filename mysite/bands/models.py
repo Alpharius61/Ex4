@@ -23,5 +23,5 @@ class BandsManage(models.Model):
 
     name = models.CharField(max_length=20)
     active = models.BooleanField(default=False)
-    bands_type = models.CharField(max_length=1, choices=BandsType.choices)
+    bands_type = models.CharField(max_length=20, choices=BandsType.choices)
     band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
