@@ -1,0 +1,14 @@
+{% extends 'main/_base.html' %}
+{% load static %}
+
+{% block title %}Accueil{% endblock title %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<ul>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, perspiciatis?</li>
+  <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, architecto?</li>
+  <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, architecto?</li>
+</ul>
+<img src="{% static 'main/img/elephant.jpg' %}" alt="">
+{% endblock content %}

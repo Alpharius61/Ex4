@@ -1,0 +1,15 @@
+{% extends 'main/_base.html' %}
+
+{% block title %}Annonces{% endblock title %}
+
+{% block content %}
+<h1>Les annonces</h1>
+
+<ul>
+  {% for listing in listingList %}
+  <li>{{listing.price}}€ - {{listing.name}} -
+    <a href="{% url 'listings:detail' listing.id%}">Afficher</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

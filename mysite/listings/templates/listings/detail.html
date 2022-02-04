@@ -1,0 +1,9 @@
+{% extends 'main/_base.html' %}
+
+{% block title %}{{listing.name}}{% endblock title %}
+
+{% block content %}
+<h1>{{listing.name}}</h1>
+<p>{{listing.description}}</p>
+<p>{{listing.price}}</p>
+{% endblock content %}

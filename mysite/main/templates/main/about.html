@@ -1,0 +1,17 @@
+{% extends 'main/_base.html' %}
+
+{% block title %}
+A propos
+{% endblock title %}
+
+{% block content %}
+
+{% if not isAdmin %}
+<h1>{{first_name}} - {{last_name}}</h1>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore iste voluptas animi id, cupiditate quisquam
+  nulla qui laborum harum impedit.</p>
+{% else %}
+<p>C'est toi. Tu ne sais pas qui tu es ?</p>
+{% endif %}
+
+{% endblock content %}

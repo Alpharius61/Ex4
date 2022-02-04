@@ -1,0 +1,13 @@
+li {
+  list-style: none;
+  font-size: 2em;
+  background-color: #f00;
+}
+
+li.active {
+  background-color: #0f0;
+}
+
+img {
+  max-width: 10vw;
+}

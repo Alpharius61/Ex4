@@ -1,0 +1,9 @@
+{% extends 'main/_base.html' %}
+
+{% block title %}{{band.name}}{% endblock title %}
+
+{% block content %}
+<h1>{{band.name}}</h1>
+<p>{{band.description}}</p>
+<p>Créé le : {{band.created_at}}</p>
+{% endblock content %}
