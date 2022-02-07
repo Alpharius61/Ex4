@@ -6,5 +6,6 @@ app_name = "bands"
 urlpatterns = [
     path('', b_views.bands, name='index'),
     path('<int:band_id>/', b_views.band_detail, name='detail'),
-    path('bandAdd', b_views.bandAdd, name='bandAdd' )
+    path('bandAdd', b_views.bandAdd, name='bandAdd' ),
+    path('bandUp', b_views.bandUp, name='bandUp' ),
 ]

@@ -7,4 +7,12 @@
 <p>{{band.description}}</p>
 <p>{{band.bands_type}}</p>
 <p>Créé le : {{band.created_at}}</p>
+
+{% comment %} créer formulaire {% endcomment %}
+<form action="" method="post">
+    {% csrf_token %}
+    {% comment %} créer bouton {% endcomment %}
+    <input type="submit" value="Supprimer">
+</form>
+
 {% endblock content %}

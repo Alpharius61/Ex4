@@ -30,3 +30,24 @@ class BandsAdd(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+class BandsUp(models.Model):
+    class BandsType(models.TextChoices):
+        RAP = 'Rap'
+        Rock = 'Rock'
+        Falk = 'Falk'
+        OTHER = 'Other'
+
+    class BandsNameUp(models.TextChoices):
+        name = BandsAdd.objects.get(id=band_id)
+
+    name = models.CharField(max_length=20)
+    active = models.BooleanField(default=False)
+    description = models.TextField(max_length= 1000, default='description')
+    bands_type = models.CharField(max_length=20, choices=BandsType.choices)
+    band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+
