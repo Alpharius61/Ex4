@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 
 # Create your models here.
@@ -14,14 +15,18 @@ class Band(models.Model):
     def __str__(self):
         return f"{self.name} - {self.created_at}"
 
-class BandsManage(models.Model):
+class BandsAdd(models.Model):
     class BandsType(models.TextChoices):
-        RAP = 'R'
-        Rock = 'Ro'
-        Falk = 'F'
-        OTHER = 'O'
+        RAP = 'Rap'
+        Rock = 'Rock'
+        Falk = 'Falk'
+        OTHER = 'Other'
 
     name = models.CharField(max_length=20)
     active = models.BooleanField(default=False)
+    description = models.TextField(max_length= 1000, default='description')
     bands_type = models.CharField(max_length=20, choices=BandsType.choices)
     band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"{self.name}"

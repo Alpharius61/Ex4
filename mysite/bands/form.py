@@ -1,9 +1,9 @@
 from django import forms
-from bands.models import BandsManage
+from bands.models import BandsAdd
 
 
 class bandForm(forms.ModelForm):
 
     class Meta:
-        model = BandsManage
-        fields = ['name', 'Actif', 'Type']
+        model = BandsAdd
+        fields = ['name', 'active','description', 'bands_type']

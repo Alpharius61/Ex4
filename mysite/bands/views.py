@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from bands.models import Band
-from bands.models import BandsManage
+from bands.models import BandsAdd
+from bands.form import bandForm
 # Create your views here.
 
 
 def bands(request):
     # Récupérer toutes les groupes
-    bands = Band.objects.all()
+    bands = BandsAdd.objects.all()
 
     context = {
         'bands': bands
@@ -16,18 +17,19 @@ def bands(request):
 
 def band_detail(request, band_id):
     # Récupérer un groupe en particulier grâce à son id (clé primaire)
-    band = Band.objects.get(id=band_id)
+    band = BandsAdd.objects.get(id=band_id)
     context = {'band': band}
     return render(request, 'bands/band_detail.html', context)
 
 
 def bandAdd(request):
-    form = BandsManage
+    form = bandForm()
     if request.method == 'POST':
-        form = BandsManage(request.POST)
+        form = bandForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('bands:bands')
+            print('save')
+            return redirect('bands:index')
 
     context = {
         'form': form
